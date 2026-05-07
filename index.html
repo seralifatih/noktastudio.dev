@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nokta Studio — Independent Software Studio</title>
+<meta name="description" content="Nokta Studio is an independent software studio in Ankara, Turkey, building focused SaaS tools, mobile apps, and content products.">
+<meta name="author" content="Fatih Ilhan">
+<link rel="canonical" href="https://noktastudio.com/">
+<meta name="theme-color" content="#1a1714">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noktastudio.com/">
+<meta property="og:title" content="Nokta Studio — Independent Software Studio">
+<meta property="og:description" content="Solo studio in Ankara building SaaS tools, mobile apps, and content products. Small bets, sharp products, fast cycles.">
+<meta property="og:image" content="https://noktastudio.com/portrait.jpg">
+<meta property="og:site_name" content="Nokta Studio">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nokta Studio — Independent Software Studio">
+<meta name="twitter:description" content="Solo studio in Ankara building SaaS tools, mobile apps, and content products.">
+<meta name="twitter:image" content="https://noktastudio.com/portrait.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nokta Studio",
+  "url": "https://noktastudio.com/",
+  "description": "Independent software studio building SaaS tools, mobile apps, and content products.",
+  "founder": {
+    "@type": "Person",
+    "name": "Fatih Ilhan",
+    "url": "https://github.com/seralifatih"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ankara",
+    "addressCountry": "TR"
+  },
+  "sameAs": [
+    "https://github.com/seralifatih",
+    "https://tr.linkedin.com/in/fatih-ilhan-11628177"
+  ]
+}
+</script>
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1714;
+    --paper: #f5f0e8;
+    --paper-dark: #ede8dc;
+    --accent: #c4451a;
+    --accent-muted: #e8c4b4;
+    --mid: #6a5f55;
+    --border: #d8d0c4;
+    --mono: 'DM Mono', monospace;
+    --serif: 'DM Serif Display', serif;
+    --body: 'Lora', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.5;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.4rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(245, 240, 232, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .nav-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .nav-wordmark {
+    font-family: var(--mono);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--mid);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.4rem;
+    cursor: pointer;
+    color: var(--ink);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-number {
+    position: absolute;
+    top: 50%;
+    right: -2rem;
+    transform: translateY(-50%);
+    font-family: var(--serif);
+    font-size: clamp(18rem, 30vw, 38rem);
+    color: transparent;
+    -webkit-text-stroke: 1px var(--border);
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .hero-label {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 7vw, 7rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 780px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    margin-top: 2rem;
+    font-size: 1.05rem;
+    color: var(--mid);
+    max-width: 440px;
+    line-height: 1.65;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-cta-row {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.85rem 1.8rem;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+  .hero-scroll {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hero-scroll svg { animation: bounce 2s infinite; }
+
+  /* ── SECTION SHARED ── */
+  section {
+    padding: 7rem 3rem;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 3.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    max-width: 4rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--ink);
+    color: var(--paper);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about .section-label { color: var(--accent-muted); }
+  .about .section-label::after { background: var(--accent-muted); }
+
+  .about-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .about-title em { font-style: italic; color: var(--accent-muted); }
+
+  .about-right { display: flex; flex-direction: column; gap: 1.4rem; }
+
+  .about-body {
+    font-size: 1rem;
+    color: #b5ad9f;
+    line-height: 1.75;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #2e2a25;
+    border: 1px solid #2e2a25;
+    margin-top: 1rem;
+  }
+
+  .stat {
+    background: var(--ink);
+    padding: 1.6rem 1.2rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    line-height: 1;
+    color: var(--paper);
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #b5ad9f;
+    margin-top: 0.4rem;
+  }
+
+  .about-principles {
+    margin-top: 1.5rem;
+    border-top: 1px solid #2e2a25;
+    padding-top: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .about-principles-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #b5ad9f;
+  }
+
+  .about-principles-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  /* ── PRODUCTS ── */
+  .products { background: var(--paper); }
+
+  .products-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+  }
+
+  .products-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: 500px;
+  }
+
+  .products-title em { font-style: italic; color: var(--accent); }
+
+  .products-count {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    padding-bottom: 0.3rem;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .product-card {
+    background: var(--paper);
+    padding: 2.8rem 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    cursor: default;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-card:hover { background: var(--paper-dark); }
+
+  .product-card:hover .product-arrow { transform: translate(3px, -3px); }
+
+  .product-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .product-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  /* Grid layout: 5+7, 7+5, 12 */
+  .product-card:nth-child(1) { grid-column: span 5; }
+  .product-card:nth-child(2) { grid-column: span 7; }
+  .product-card:nth-child(3) { grid-column: span 7; }
+  .product-card:nth-child(4) { grid-column: span 5; }
+  .product-card:nth-child(5) { grid-column: span 12; flex-direction: row; align-items: center; gap: 4rem; }
+
+  .product-number {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--mid);
+  }
+
+  .product-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .product-name {
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .product-tagline {
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-top: -0.4rem;
+  }
+
+  .product-desc {
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .product-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .product-doc-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .product-doc-link {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--ink);
+    background: rgba(255,255,255,0.45);
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .product-doc-link:hover {
+    background: white;
+    border-color: var(--mid);
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--mid);
+  }
+
+  .tag.live {
+    border-color: #4a8c5c;
+    color: #4a8c5c;
+    background: #f0f7f3;
+  }
+
+  .tag.building {
+    border-color: #c4451a;
+    color: #c4451a;
+    background: #fdf3ef;
+  }
+
+  .product-arrow {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+    color: var(--mid);
+    flex-shrink: 0;
+  }
+
+  /* Product 5 wide layout adjustments */
+  .product-card:nth-child(5) .product-name { font-size: 2.2rem; }
+  .product-card:nth-child(5) .product-desc { max-width: 420px; }
+  .product-card:nth-child(5) .product-footer { border-top: none; padding-top: 0; }
+  .product-card:nth-child(5) .product-left { display: flex; flex-direction: column; gap: 0.8rem; }
+
+  .insights {
+    background: linear-gradient(180deg, var(--paper) 0%, #f1eadf 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .insights-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .insights-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    max-width: 620px;
+  }
+
+  .insights-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .insights-intro {
+    max-width: 360px;
+    font-size: 0.92rem;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+
+  .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .insight-card {
+    background: rgba(245, 240, 232, 0.94);
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .insight-card.featured {
+    grid-column: span 7;
+    background: linear-gradient(180deg, #f8f2e9 0%, #f3ebdf 100%);
+  }
+
+  .insight-card.compact {
+    grid-column: span 5;
+    justify-content: space-between;
+  }
+
+  .insight-kicker {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .insight-title {
+    font-family: var(--serif);
+    font-size: 2rem;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .insight-card.compact .insight-title {
+    font-size: 1.6rem;
+  }
+
+  .insight-desc {
+    font-size: 0.95rem;
+    color: var(--mid);
+    line-height: 1.75;
+  }
+
+  .insight-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem 1.2rem;
+    padding-top: 0.2rem;
+  }
+
+  .insight-list span {
+    position: relative;
+    padding-left: 1rem;
+    font-size: 0.84rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .insight-list span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .insight-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.4rem;
+  }
+
+  .insight-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.45);
+    padding: 0.5rem 0.75rem;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+
+  .insight-link:hover {
+    background: white;
+    border-color: var(--mid);
+    transform: translateY(-1px);
+  }
+
+  .insight-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1rem;
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+  }
+
+  .insight-meta-text {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .insight-arrow {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mid);
+  }
+
+  /* ── STACK ── */
+  .stack {
+    background: var(--paper-dark);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stack-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .stack-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .stack-body {
+    font-size: 0.95rem;
+    color: var(--mid);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .stack-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .chip {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    padding: 0.4rem 0.9rem;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--ink);
+  }
+
+  .chip svg { margin-right: 6px; }
+
+  .stack-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .process-step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.8rem 1.6rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+  }
+
+  .process-step:last-child { border-bottom: none; }
+
+  .step-num {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    padding-top: 0.2rem;
+    flex-shrink: 0;
+    width: 2rem;
+  }
+
+  .step-title {
+    font-family: var(--body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .step-desc {
+    font-size: 0.85rem;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 8rem 3rem;
+  }
+
+  .contact-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-muted);
+    margin-bottom: 2rem;
+  }
+
+  .contact-title {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .contact-title em { font-style: italic; color: var(--accent-muted); }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #b5ad9f;
+    text-decoration: none;
+    padding: 0.85rem 1.8rem;
+    border: 1px solid #3a3530;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover {
+    color: var(--paper);
+    border-color: var(--paper);
+    background: rgba(255,255,255,0.05);
+  }
+
+  .contact-link.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  .contact-link.primary:hover {
+    background: #d4551f;
+    border-color: #d4551f;
+  }
+
+  .contact-link svg { margin-right: 8px; vertical-align: middle; }
+
+  /* ── FOUNDER ── */
+  .founder {
+    background: var(--paper);
+    border-top: 1px solid var(--border);
+  }
+
+  .founder-inner {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .founder-photo-wrap {
+    position: relative;
+  }
+
+  .founder-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--paper-dark);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .founder-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .founder-photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--mid);
+  }
+
+  .founder-photo-placeholder svg {
+    opacity: 0.3;
+  }
+
+  .founder-photo-placeholder span {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  .founder-photo-tag {
+    position: absolute;
+    bottom: -1px;
+    left: -1px;
+    background: var(--accent);
+    color: white;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .founder-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding-top: 0.5rem;
+  }
+
+  .founder-name {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .founder-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .founder-role {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-top: -1rem;
+  }
+
+  .founder-bio {
+    font-size: 1rem;
+    color: var(--mid);
+    line-height: 1.8;
+    max-width: 520px;
+  }
+
+  .founder-bio strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .founder-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+    max-width: 420px;
+  }
+
+  .founder-fact {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.9rem 1.2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .founder-fact:last-child { border-bottom: none; }
+
+  .fact-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.45rem;
+  }
+
+  .fact-text {
+    font-size: 0.88rem;
+    color: var(--mid);
+    line-height: 1.5;
+  }
+
+  .fact-text strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .founder-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .founder-photo { aspect-ratio: 1/1; max-width: 200px; }
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid #2e2a25;
+    padding: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+
+  .footer-copy {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: #5a5249;
+  }
+
+  .footer-wordmark {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #5a5249;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-toggle { display: flex; align-items: center; justify-content: center; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      padding: 1rem 1.5rem 1.5rem;
+      background: rgba(245, 240, 232, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+    .nav-links li:last-child { border-bottom: none; }
+    section { padding: 5rem 1.5rem; }
+    .hero { padding: 0 1.5rem 4rem; }
+    .about { grid-template-columns: 1fr; gap: 3rem; }
+    .products-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .insights-header { flex-direction: column; align-items: flex-start; }
+    .insights-intro { max-width: none; }
+    .insight-card.featured,
+    .insight-card.compact { grid-column: span 12; }
+    .insight-list { grid-template-columns: 1fr; }
+    .product-card:nth-child(1),
+    .product-card:nth-child(2),
+    .product-card:nth-child(3),
+    .product-card:nth-child(4),
+    .product-card:nth-child(5) { grid-column: span 12; flex-direction: column; gap: 1.2rem; }
+    .product-card:nth-child(5) .product-footer { border-top: 1px solid var(--border); padding-top: 1rem; }
+    .stack-inner { grid-template-columns: 1fr; gap: 3rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .hero-bg-number { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="nav-dot"></span>
+    <span class="nav-wordmark">Nokta Studio</span>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#insights">Insights</a></li>
+    <li><a href="#founder">About</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-number" aria-hidden="true">05</div>
+  <div class="hero-label">Independent Software Studio</div>
+  <h1 class="hero-title">
+    Solo studio.<br>
+    <em>Sharp</em> products.
+  </h1>
+  <p class="hero-sub">
+    Nokta Studio builds focused web and mobile apps — tools that solve one problem exceptionally well, then ship.
+  </p>
+  <div class="hero-cta-row">
+    <a href="#products" class="btn-primary">
+      View Products
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="#contact" class="hero-scroll">
+      Get in touch
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left reveal">
+    <div class="section-label">About the studio</div>
+    <h2 class="about-title">One maker.<br><em>Many</em> bets.</h2>
+    <div class="about-stats">
+      <div class="stat">
+        <div class="stat-num">05</div>
+        <div class="stat-label">Products</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Platforms</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Iterations</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-right reveal">
+    <p class="about-body">
+      Nokta Studio is an independent software studio based in Ankara, Turkey. I build SaaS tools, mobile apps, and content products — leaning on modern AI-assisted workflows to ship fast and stay lean.
+    </p>
+    <p class="about-body">
+      Every product starts with a simple belief: software should do one thing well. I don't build platforms. I build tools that respect the user's time, fit into their workflow, and get out of the way.
+    </p>
+    <p class="about-body">
+      From feedback management to astrology apps to mobile games — I build across categories, but the philosophy stays the same.
+    </p>
+    <div class="about-principles">
+      <div class="about-principles-label">Principles</div>
+      <div class="about-principles-tags">
+        <span class="tag">Ship fast</span>
+        <span class="tag">Small tools</span>
+        <span class="tag">Global users</span>
+        <span class="tag">Indie first</span>
+        <span class="tag">AI assisted</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-label">Finished products</div>
+  <div class="products-header reveal">
+    <h2 class="products-title">
+      Live projects with a<br><em>real</em> home on the web.
+    </h2>
+    <span class="products-count">05 products</span>
+  </div>
+
+  <div class="products-grid reveal">
+
+    <!-- LoopSignal -->
+    <article class="product-card">
+      <div class="product-card-head">
+        <span class="product-number">01</span>
+        <div class="product-icon" aria-hidden="true" style="background:#eef4ff;">📣</div>
+      </div>
+      <h3 class="product-name">LoopSignal</h3>
+      <p class="product-tagline">Close the loop between users and code.</p>
+      <p class="product-desc">A feedback management tool for indie developers. Collect feature requests, moderate feedback, and sync validated ideas directly to GitHub issues so product decisions stay connected to real users.</p>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag building">Building</span>
+          <span class="tag">Web App</span>
+          <span class="tag">SaaS</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ConvertCenter -->
+    <a class="product-card" href="https://convertcenter.org" target="_blank" rel="noopener" class="product-link">
+      <div class="product-card-head">
+        <span class="product-number">02</span>
+        <div class="product-icon" aria-hidden="true" style="background:#fdf3ef;">↔️</div>
+      </div>
+      <h3 class="product-name">ConvertCenter</h3>
+      <p class="product-tagline">Clean conversion tools built for speed.</p>
+      <p class="product-desc">A long‑tail SEO utility hub offering dozens of small conversion tools for developers, designers, and everyday users — from unit conversions to encoding, color formats, and data utilities.</p>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag live">Live</span>
+          <span class="tag">Web App</span>
+          <span class="tag">Utilities</span>
+        </div>
+        <div class="product-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- Dharma Astroloji -->
+    <a class="product-card" href="https://dharmaastroloji.com" target="_blank" rel="noopener" class="product-link">
+      <div class="product-card-head">
+        <span class="product-number">03</span>
+        <div class="product-icon" aria-hidden="true" style="background:#f5f0fa;">☽</div>
+      </div>
+      <h3 class="product-name">Dharma Astroloji</h3>
+      <p class="product-tagline">Modern astrology content for Turkish audiences.</p>
+      <p class="product-desc">A digital astrology brand combining blog articles, podcast content, and upcoming mobile tools for natal charts, daily insights, and AI‑assisted readings.</p>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag live">Live</span>
+          <span class="tag">Content Platform</span>
+          <span class="tag">Web</span>
+        </div>
+        <div class="product-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- OneRule -->
+    <a class="product-card" href="https://seralifatih.github.io/OneRuleWeb/" target="_blank" rel="noopener" class="product-link">
+      <div class="product-card-head">
+        <span class="product-number">04</span>
+        <div class="product-icon" aria-hidden="true" style="background:#f5f5ef;">🔐</div>
+      </div>
+      <h3 class="product-name">OneRule</h3>
+      <p class="product-tagline">A minimalist password manager.</p>
+      <p class="product-desc">An offline‑first Android password manager focused on simplicity and security. Local‑only storage, clean UX, and open‑source distribution through alternative app ecosystems.</p>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag live">Live</span>
+          <span class="tag">Mobile App</span>
+          <span class="tag">Android</span>
+        </div>
+        <div class="product-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- SoundMeter -->
+    <article class="product-card">
+      <div class="product-left">
+        <div class="product-card-head">
+          <span class="product-number">05</span>
+          <div class="product-icon" aria-hidden="true" style="background:#edf6f1; font-size:0.9rem; font-family:var(--mono);">dB</div>
+        </div>
+        <h3 class="product-name">SoundMeter</h3>
+        <p class="product-tagline">A clean decibel measurement app for everyday noise checks.</p>
+        <p class="product-desc">A mobile sound level meter that uses your phone's microphone to measure environmental noise in real time. It focuses on live dB readings, min/avg/max stats, saved measurement history, calibration, and CSV export without the clutter common in utility apps.</p>
+      </div>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag building">Building</span>
+          <span class="tag">Mobile App</span>
+          <span class="tag">Android</span>
+        </div>
+        <div class="product-doc-links">
+          <a class="product-doc-link" href="/sound-meter-privacy.html" target="_blank" rel="noopener">Privacy</a>
+          <a class="product-doc-link" href="/sound-meter-terms.html" target="_blank" rel="noopener">Terms</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section class="insights" id="insights">
+  <div class="section-label">Selected writing</div>
+  <div class="insights-header reveal">
+    <h2 class="insights-title">
+      A few strong posts on<br><em>what I build</em> and why.
+    </h2>
+    <p class="insights-intro">
+      Not a full blog roll. Just a short list of the ideas, systems, and product decisions that feel worth publishing.
+    </p>
+  </div>
+
+  <div class="insights-grid">
+    <article class="insight-card featured reveal">
+      <div class="insight-kicker">Featured insight</div>
+      <h3 class="insight-title">3 APIs for Turkish E-Commerce Intelligence on Apify</h3>
+      <p class="insight-desc">
+        Turkish marketplace data is valuable, but hard to operationalize. Product pages, seller profiles, and review systems all expose different structures, which usually leaves teams stitching together brittle scrapers and cleanup scripts. I packaged that work into three production-ready Apify Actors that behave like APIs: send JSON input, get normalized output, and plug the results into BI pipelines, alerts, or AI workflows without a custom parser per marketplace.
+      </p>
+      <div class="insight-list">
+        <span>N11 Product Scraper for structured catalog, pricing, seller, and stock data</span>
+        <span>Seller Intelligence across Trendyol, Hepsiburada, and N11</span>
+        <span>Review Aggregator with normalized schema and Turkish sentiment tagging</span>
+        <span>Built for pricing analysis, seller evaluation, competitor tracking, and research</span>
+      </div>
+      <div class="insight-links">
+        <a class="insight-link" href="https://apify.com/seralifatih/n11-product-scraper" target="_blank" rel="noopener">N11 Product Scraper</a>
+        <a class="insight-link" href="https://apify.com/seralifatih/turkish-marketplace-seller-intelligence" target="_blank" rel="noopener">Seller Intelligence</a>
+        <a class="insight-link" href="https://apify.com/seralifatih/turkish-e-commerce-review-aggregator" target="_blank" rel="noopener">Review Aggregator</a>
+      </div>
+      <div class="insight-meta">
+        <span class="insight-meta-text">Data products / Apify Actors / Turkey</span>
+      </div>
+    </article>
+
+    <article class="insight-card compact reveal">
+      <div class="insight-kicker">Studio note</div>
+      <h3 class="insight-title">Why I Prefer Small Products Over Big Platforms</h3>
+      <p class="insight-desc">
+        I bias toward software that solves one job clearly, ships quickly, and earns its place in a real workflow. That constraint shapes everything from scope to pricing to the kinds of products Nokta Studio chooses to launch.
+      </p>
+      <div class="insight-meta">
+        <span class="insight-meta-text">Product strategy / Focus</span>
+      </div>
+    </article>
+
+    <article class="insight-card compact reveal">
+      <div class="insight-kicker">Build system</div>
+      <h3 class="insight-title">Shipping Faster With a Tight Stack</h3>
+      <p class="insight-desc">
+        Reusing the same core stack across products is less about fashion and more about speed. Next.js, Cloudflare, Supabase, and AI-assisted workflows reduce context switching so new ideas get validated and deployed sooner.
+      </p>
+      <div class="insight-meta">
+        <span class="insight-meta-text">Engineering / Workflow</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="stack" id="stack">
+  <div class="stack-inner">
+    <div class="reveal">
+      <div class="section-label">How I build</div>
+      <h2 class="stack-title">Lean stack.<br>Fast cycles.</h2>
+      <p class="stack-body">
+        I build with a tight, proven stack across all projects. The same infrastructure pattern — Next.js on Cloudflare, Supabase for data, Paddle for payments — means less context-switching and faster shipping.
+      </p>
+      <div class="stack-chips">
+        <span class="chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h18M12 3v18" stroke="currentColor" stroke-width="1.5"/></svg>
+          Next.js
+        </span>
+        <span class="chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.5"/></svg>
+          TypeScript
+        </span>
+        <span class="chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l9 6-9 6-9-6 9-6z" stroke="currentColor" stroke-width="1.5"/></svg>
+          Tailwind
+        </span>
+        <span class="chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.5"/></svg>
+          Supabase
+        </span>
+        <span class="chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5"/></svg>
+          Cloudflare
+        </span>
+        <span class="chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="1.5"/></svg>
+          Workers
+        </span>
+        <span class="chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18v12H3z" stroke="currentColor" stroke-width="1.5"/></svg>
+          Flutter
+        </span>
+        <span class="chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1"/></svg>
+          AI APIs
+        </span>
+        <span class="chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.5"/></svg>
+          Paddle
+        </span>
+      </div>
+    </div>
+    <div class="stack-right reveal">
+      <div class="process-step">
+        <span class="step-num">01</span>
+        <div>
+          <div class="step-title">Idea → Validation</div>
+          <p class="step-desc">Problem-first thinking. Is this something people already try to solve with worse tools?</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <span class="step-num">02</span>
+        <div>
+          <div class="step-title">Design → Prototype</div>
+          <p class="step-desc">No design by committee. One clear aesthetic direction, executed with precision.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <span class="step-num">03</span>
+        <div>
+          <div class="step-title">Build → Ship</div>
+          <p class="step-desc">AI-assisted development. Prompts over boilerplate. Move fast, stay quality-conscious.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <span class="step-num">04</span>
+        <div>
+          <div class="step-title">Distribute → Iterate</div>
+          <p class="step-desc">AppSumo LTDs, Reddit communities, SEO. No free tiers, no VC timelines.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder" id="founder">
+  <div class="founder-inner">
+    <div class="founder-photo-wrap reveal">
+      <div class="founder-photo">
+        <picture>
+          <source srcset="/portrait.webp" type="image/webp">
+          <img src="/portrait.jpg" alt="Fatih Ilhan" width="400" height="400" loading="lazy" decoding="async" class="founder-img">
+        </picture>
+        <span class="founder-photo-tag">Founder</span>
+      </div>
+    </div>
+    <div class="founder-right reveal">
+      <div class="section-label">The person behind it</div>
+      <h2 class="founder-name">Hi, I'm <em>Fatih.</em></h2>
+      <p class="founder-role">Indie Maker · Turkey</p>
+      <p class="founder-bio">
+        I build software the way I think it should be built — <strong>fast, focused, and without a team of 20.</strong> Nokta Studio is my lab: a place where ideas become products, products get shipped, and shipped things get iterated on until they earn their keep.
+      </p>
+      <p class="founder-bio">
+        I work across web, mobile, and games — whatever the idea demands. My stack is tight, my timelines are short, and I don't do free tiers. <strong>Everything here is built by one person with strong opinions and a bias toward shipping.</strong>
+      </p>
+      <div class="founder-facts">
+        <div class="founder-fact">
+          <span class="fact-dot"></span>
+          <span class="fact-text"><strong>Vibe coder</strong> — AI-assisted development from idea to production</span>
+        </div>
+        <div class="founder-fact">
+          <span class="fact-dot"></span>
+          <span class="fact-text"><strong>Multiple bets</strong> — SaaS, mobile apps, games, content brands running in parallel</span>
+        </div>
+        <div class="founder-fact">
+          <span class="fact-dot"></span>
+          <span class="fact-text"><strong>Based in Ankara, Turkey</strong> — building for global markets</span>
+        </div>
+        <div class="founder-fact">
+          <span class="fact-dot"></span>
+          <span class="fact-text"><strong>No VC, no team, no free tiers</strong> — indie all the way</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-eyebrow reveal">Let's talk</div>
+  <h2 class="contact-title reveal">
+    Got a product idea?<br><em>Let's build it.</em>
+  </h2>
+  <div class="contact-links reveal">
+    <a href="mailto:h.f.ilhan@gmail.com" class="contact-link primary" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.5"/></svg>
+      Email
+    </a>
+
+    <a href="https://github.com/seralifatih" class="contact-link" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.48 0-.24-.01-1.04-.02-1.88-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.06 1.03-2.78-.1-.26-.45-1.31.1-2.72 0 0 .84-.27 2.75 1.06A9.2 9.2 0 0112 6.84c.82 0 1.65.11 2.42.34 1.9-1.33 2.74-1.06 2.74-1.06.55 1.41.2 2.46.1 2.72.64.72 1.03 1.65 1.03 2.78 0 3.96-2.34 4.83-4.57 5.08.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.18.59.69.48A10.03 10.03 0 0022 12.24C22 6.58 17.52 2 12 2z" fill="currentColor"/></svg>
+      GitHub
+    </a>
+
+    <a href="https://tr.linkedin.com/in/fatih-ilhan-11628177" class="contact-link" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.94 6.5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0zM3.5 8.75h3v11h-3v-11zM10 8.75h2.88v1.5h.04c.4-.76 1.38-1.56 2.85-1.56 3.05 0 3.61 2.03 3.61 4.67v6.39h-3v-5.66c0-1.35-.02-3.09-1.88-3.09-1.88 0-2.17 1.47-2.17 2.99v5.76h-3v-11z" fill="currentColor"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">
+    <span class="nav-dot"></span>
+    <span class="footer-wordmark">Nokta Studio</span>
+  </a>
+  <span class="footer-copy">© 2025 Nokta Studio. Built &amp; shipped independently.</span>
+  <a class="footer-copy" href="https://noktastudio.com" style="text-decoration:none;">noktastudio.com</a>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Mobile nav toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Stagger product cards
+  const cards = document.querySelectorAll('.product-card');
+  const cardObserver = new IntersectionObserver((entries) => {
+    if (entries.some(e => e.isIntersecting)) {
+      cards.forEach((card, i) => {
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'none';
+        }, i * 100);
+      });
+      cardObserver.disconnect();
+    }
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(24px)';
+    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    cardObserver.observe(card);
+  });
+</script>
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "743b9b5c601a40328ef9e066d338d496"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>
