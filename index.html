@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nokta Studio — Independent Software Studio</title>
-<meta name="description" content="Nokta Studio is an independent software studio in Ankara, Turkey, building focused SaaS tools, mobile apps, and content products.">
+<meta name="description" content="Nokta Studio is an independent software studio in Ankara, Turkey, building focused SaaS tools, data pipelines, and mobile apps.">
 <meta name="author" content="Fatih Ilhan">
 <link rel="canonical" href="https://noktastudio.dev/">
 <meta name="theme-color" content="#1a1714">
@@ -12,13 +12,13 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://noktastudio.dev/">
 <meta property="og:title" content="Nokta Studio — Independent Software Studio">
-<meta property="og:description" content="Solo studio in Ankara building SaaS tools, mobile apps, and content products. Small bets, sharp products, fast cycles.">
+<meta property="og:description" content="Solo studio in Ankara building SaaS tools, data pipelines, and mobile apps. Small bets, sharp products, fast cycles.">
 <meta property="og:image" content="https://noktastudio.dev/portrait.jpg">
 <meta property="og:site_name" content="Nokta Studio">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Nokta Studio — Independent Software Studio">
-<meta name="twitter:description" content="Solo studio in Ankara building SaaS tools, mobile apps, and content products.">
+<meta name="twitter:description" content="Solo studio in Ankara building SaaS tools, data pipelines, and mobile apps.">
 <meta name="twitter:image" content="https://noktastudio.dev/portrait.jpg">
 
 <script type="application/ld+json">
@@ -27,7 +27,7 @@
   "@type": "Organization",
   "name": "Nokta Studio",
   "url": "https://noktastudio.dev/",
-  "description": "Independent software studio building SaaS tools, mobile apps, and content products.",
+  "description": "Independent software studio building SaaS tools, data pipelines, and mobile apps.",
   "founder": {
     "@type": "Person",
     "name": "Fatih Ilhan",
@@ -40,7 +40,8 @@
   },
   "sameAs": [
     "https://github.com/seralifatih",
-    "https://tr.linkedin.com/in/fatih-ilhan-11628177"
+    "https://tr.linkedin.com/in/fatih-ilhan-11628177",
+    "https://apify.com/seralifatih"
   ]
 }
 </script>
@@ -128,7 +129,7 @@
 
   .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 2.2rem;
     list-style: none;
   }
 
@@ -219,7 +220,7 @@
     margin-top: 2rem;
     font-size: 1.05rem;
     color: var(--mid);
-    max-width: 440px;
+    max-width: 460px;
     line-height: 1.65;
     animation: fadeUp 0.8s 0.2s ease both;
   }
@@ -374,6 +375,93 @@
     gap: 0.4rem;
   }
 
+  /* ── APIS / DATA ── */
+  .apis {
+    background: var(--paper-dark);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .apis-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .apis-title {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: 560px;
+  }
+
+  .apis-title em { font-style: italic; color: var(--accent); }
+
+  .apis-intro {
+    max-width: 360px;
+    font-size: 0.92rem;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+
+  .apis-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .api-card {
+    background: var(--paper);
+    padding: 2.4rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+  }
+
+  .api-card:hover { background: #faf6ef; }
+  .api-card:hover .product-arrow { transform: translate(3px, -3px); }
+
+  .api-card.wide { grid-column: span 6; }
+  .api-card.third { grid-column: span 4; }
+
+  .api-kicker {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .api-name {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .api-card.wide .api-name { font-size: 1.9rem; }
+
+  .api-desc {
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .apis-footer {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-start;
+  }
+
   /* ── PRODUCTS ── */
   .products { background: var(--paper); }
 
@@ -417,20 +505,15 @@
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
-    cursor: default;
+    text-decoration: none;
+    color: inherit;
     transition: background 0.2s;
     position: relative;
     overflow: hidden;
   }
 
   .product-card:hover { background: var(--paper-dark); }
-
   .product-card:hover .product-arrow { transform: translate(3px, -3px); }
-
-  .product-link {
-    text-decoration: none;
-    color: inherit;
-  }
 
   .product-card-head {
     display: flex;
@@ -438,12 +521,13 @@
     align-items: flex-start;
   }
 
-  /* Grid layout: 5+7, 7+5, 12 */
-  .product-card:nth-child(1) { grid-column: span 5; }
-  .product-card:nth-child(2) { grid-column: span 7; }
-  .product-card:nth-child(3) { grid-column: span 7; }
-  .product-card:nth-child(4) { grid-column: span 5; }
-  .product-card:nth-child(5) { grid-column: span 12; flex-direction: row; align-items: center; gap: 4rem; }
+  /* Grid layout: 7+5, 5+7, 6+6 */
+  .product-card:nth-child(1) { grid-column: span 7; }
+  .product-card:nth-child(2) { grid-column: span 5; }
+  .product-card:nth-child(3) { grid-column: span 5; }
+  .product-card:nth-child(4) { grid-column: span 7; }
+  .product-card:nth-child(5) { grid-column: span 6; }
+  .product-card:nth-child(6) { grid-column: span 6; }
 
   .product-number {
     font-family: var(--mono);
@@ -469,6 +553,8 @@
     line-height: 1.1;
     letter-spacing: -0.01em;
   }
+
+  .product-card:nth-child(1) .product-name { font-size: 2.1rem; }
 
   .product-tagline {
     font-size: 0.88rem;
@@ -551,6 +637,12 @@
     background: #fdf3ef;
   }
 
+  .tag.paid {
+    border-color: #8a6d1f;
+    color: #8a6d1f;
+    background: #faf5e6;
+  }
+
   .product-arrow {
     width: 32px;
     height: 32px;
@@ -562,12 +654,32 @@
     flex-shrink: 0;
   }
 
-  /* Product 5 wide layout adjustments */
-  .product-card:nth-child(5) .product-name { font-size: 2.2rem; }
-  .product-card:nth-child(5) .product-desc { max-width: 420px; }
-  .product-card:nth-child(5) .product-footer { border-top: none; padding-top: 0; }
-  .product-card:nth-child(5) .product-left { display: flex; flex-direction: column; gap: 0.8rem; }
+  /* ── CLIENT WORK ── */
+  .client {
+    background: var(--paper);
+    border-top: 1px solid var(--border);
+    padding-top: 5rem;
+  }
 
+  .client-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    border: 1px solid var(--border);
+    background: var(--paper-dark);
+    padding: 2.8rem 2.4rem;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+  }
+
+  .client-card:hover { background: #e7e1d3; }
+  .client-card:hover .product-arrow { transform: translate(3px, -3px); }
+
+  .client-left { display: flex; flex-direction: column; gap: 0.8rem; }
+
+  /* ── INSIGHTS ── */
   .insights {
     background: linear-gradient(180deg, var(--paper) 0%, #f1eadf 100%);
     border-top: 1px solid var(--border);
@@ -723,16 +835,6 @@
     font-size: 0.66rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--mid);
-  }
-
-  .insight-arrow {
-    width: 32px;
-    height: 32px;
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: var(--mid);
   }
 
@@ -929,26 +1031,6 @@
     display: block;
   }
 
-  .founder-photo-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-    color: var(--mid);
-  }
-
-  .founder-photo-placeholder svg {
-    opacity: 0.3;
-  }
-
-  .founder-photo-placeholder span {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: 0.5;
-  }
-
   .founder-photo-tag {
     position: absolute;
     bottom: -1px;
@@ -1040,11 +1122,6 @@
     font-weight: 500;
   }
 
-  @media (max-width: 900px) {
-    .founder-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .founder-photo { aspect-ratio: 1/1; max-width: 200px; }
-  }
-
   /* ── FOOTER ── */
   footer {
     background: var(--ink);
@@ -1132,9 +1209,13 @@
     section { padding: 5rem 1.5rem; }
     .hero { padding: 0 1.5rem 4rem; }
     .about { grid-template-columns: 1fr; gap: 3rem; }
-    .products-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-    .insights-header { flex-direction: column; align-items: flex-start; }
+    .apis-header,
+    .products-header,
+    .insights-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .apis-intro,
     .insights-intro { max-width: none; }
+    .api-card.wide,
+    .api-card.third { grid-column: span 12; }
     .insight-card.featured,
     .insight-card.compact { grid-column: span 12; }
     .insight-list { grid-template-columns: 1fr; }
@@ -1142,9 +1223,12 @@
     .product-card:nth-child(2),
     .product-card:nth-child(3),
     .product-card:nth-child(4),
-    .product-card:nth-child(5) { grid-column: span 12; flex-direction: column; gap: 1.2rem; }
-    .product-card:nth-child(5) .product-footer { border-top: 1px solid var(--border); padding-top: 1rem; }
+    .product-card:nth-child(5),
+    .product-card:nth-child(6) { grid-column: span 12; }
+    .client-card { grid-template-columns: 1fr; gap: 1.5rem; }
     .stack-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .founder-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .founder-photo { aspect-ratio: 1/1; max-width: 200px; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
     .hero-bg-number { display: none; }
   }
@@ -1159,6 +1243,7 @@
     <span class="nav-wordmark">Nokta Studio</span>
   </a>
   <ul class="nav-links" id="nav-links">
+    <li><a href="#apis">APIs</a></li>
     <li><a href="#products">Products</a></li>
     <li><a href="#insights">Insights</a></li>
     <li><a href="#founder">About</a></li>
@@ -1172,18 +1257,18 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-number" aria-hidden="true">05</div>
+  <div class="hero-bg-number" aria-hidden="true">06</div>
   <div class="hero-label">Independent Software Studio</div>
   <h1 class="hero-title">
     Solo studio.<br>
     <em>Sharp</em> products.
   </h1>
   <p class="hero-sub">
-    Nokta Studio builds focused web and mobile apps — tools that solve one problem exceptionally well, then ship.
+    Nokta Studio builds focused web tools, data pipelines, and mobile apps — software that solves one problem exceptionally well, then ships.
   </p>
   <div class="hero-cta-row">
-    <a href="#products" class="btn-primary">
-      View Products
+    <a href="#apis" class="btn-primary">
+      View Work
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
     <a href="#contact" class="hero-scroll">
@@ -1200,12 +1285,12 @@
     <h2 class="about-title">One maker.<br><em>Many</em> bets.</h2>
     <div class="about-stats">
       <div class="stat">
-        <div class="stat-num">05</div>
+        <div class="stat-num">06</div>
         <div class="stat-label">Products</div>
       </div>
       <div class="stat">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Platforms</div>
+        <div class="stat-num">18</div>
+        <div class="stat-label">Data APIs</div>
       </div>
       <div class="stat">
         <div class="stat-num">∞</div>
@@ -1215,13 +1300,13 @@
   </div>
   <div class="about-right reveal">
     <p class="about-body">
-      Nokta Studio is an independent software studio based in Ankara, Turkey. I build SaaS tools, mobile apps, and content products — leaning on modern AI-assisted workflows to ship fast and stay lean.
+      Nokta Studio is an independent software studio based in Ankara, Turkey. I build data pipelines, SaaS tools, and mobile apps — leaning on modern AI-assisted workflows to ship fast and stay lean.
     </p>
     <p class="about-body">
       Every product starts with a simple belief: software should do one thing well. I don't build platforms. I build tools that respect the user's time, fit into their workflow, and get out of the way.
     </p>
     <p class="about-body">
-      From feedback management to astrology apps to mobile games — I build across categories, but the philosophy stays the same.
+      From congressional trading data to tax-aware relocation math to F1 statistics — I build across categories, but the philosophy stays the same.
     </p>
     <div class="about-principles">
       <div class="about-principles-label">Principles</div>
@@ -1236,31 +1321,172 @@
   </div>
 </section>
 
+<!-- APIS -->
+<section class="apis" id="apis">
+  <div class="section-label">Data &amp; APIs</div>
+  <div class="apis-header reveal">
+    <h2 class="apis-title">
+      Production pipelines that<br>behave like <em>APIs.</em>
+    </h2>
+    <p class="apis-intro">
+      Send JSON input, get normalized output. No custom parser per source, no cleanup scripts. Deployed as Apify Actors and billed per result.
+    </p>
+  </div>
+
+  <div class="apis-grid reveal">
+
+    <a class="api-card wide" href="https://apify.com/seralifatih" target="_blank" rel="noopener">
+      <div class="product-card-head">
+        <span class="api-kicker">Congressional trading</span>
+        <div class="product-icon" aria-hidden="true" style="background:#eef4ff;">🏛️</div>
+      </div>
+      <h3 class="api-name">House &amp; Senate Trading Pipelines</h3>
+      <p class="api-desc">
+        Structured trade disclosures filed by members of the US Congress. Both chambers parsed, deduplicated, and normalized into a consistent schema — ready for screeners, alerts, and backtests without touching a PDF.
+      </p>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag paid">Paying users</span>
+          <span class="tag">Apify Actor</span>
+          <span class="tag">Public data</span>
+        </div>
+        <div class="product-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <a class="api-card wide" href="https://apify.com/seralifatih/n11-product-scraper" target="_blank" rel="noopener">
+      <div class="product-card-head">
+        <span class="api-kicker">Turkish e-commerce</span>
+        <div class="product-icon" aria-hidden="true" style="background:#fdf3ef;">🛒</div>
+      </div>
+      <h3 class="api-name">N11 Product Scraper</h3>
+      <p class="api-desc">
+        Structured catalog data from N11 — pricing, seller, stock, and product attributes in a normalized schema. Built for pricing analysis, competitor tracking, and BI pipelines.
+      </p>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag live">Live</span>
+          <span class="tag">Apify Actor</span>
+          <span class="tag">E-commerce</span>
+        </div>
+        <div class="product-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <a class="api-card third" href="https://apify.com/seralifatih/turkish-marketplace-seller-intelligence" target="_blank" rel="noopener">
+      <div class="api-kicker">Marketplace</div>
+      <h3 class="api-name">Seller Intelligence</h3>
+      <p class="api-desc">Seller profiles and performance signals across Turkish marketplaces, normalized into one comparable schema.</p>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag live">Live</span>
+        </div>
+        <div class="product-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <a class="api-card third" href="https://apify.com/seralifatih/turkish-e-commerce-review-aggregator" target="_blank" rel="noopener">
+      <div class="api-kicker">Marketplace</div>
+      <h3 class="api-name">Review Aggregator</h3>
+      <p class="api-desc">Product reviews collected and normalized with Turkish-language sentiment tagging, ready for analysis or AI workflows.</p>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag live">Live</span>
+        </div>
+        <div class="product-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <a class="api-card third" href="https://apify.com/seralifatih" target="_blank" rel="noopener">
+      <div class="api-kicker">Full catalog</div>
+      <h3 class="api-name">18 Actors on Apify</h3>
+      <p class="api-desc">The complete portfolio — public data, e-commerce, and crypto pipelines. All billed per result, no subscription.</p>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag">Browse all</span>
+        </div>
+        <div class="product-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
 <!-- PRODUCTS -->
 <section class="products" id="products">
-  <div class="section-label">Finished products</div>
+  <div class="section-label">Products</div>
   <div class="products-header reveal">
     <h2 class="products-title">
       Live projects with a<br><em>real</em> home on the web.
     </h2>
-    <span class="products-count">05 products</span>
+    <span class="products-count">06 products</span>
   </div>
 
   <div class="products-grid reveal">
 
-    <!-- LoopSignal -->
-    <a class="product-card" href="https://loopsignal.dev" target="_blank" rel="noopener" class="product-link">
+    <!-- Comparely -->
+    <a class="product-card" href="https://comparely.org" target="_blank" rel="noopener">
       <div class="product-card-head">
         <span class="product-number">01</span>
+        <div class="product-icon" aria-hidden="true" style="background:#f0f7f3;">⚖️</div>
+      </div>
+      <h3 class="product-name">Comparely</h3>
+      <p class="product-tagline">What you actually keep, country by country.</p>
+      <p class="product-desc">A tax-aware comparison engine for people deciding where to live and work. Most cost-of-living tools compare rent and groceries; Comparely starts with net income after tax across 35 jurisdictions, then layers cost on top. Built for digital nomads, expats, and remote workers who need the real number, not a gross salary.</p>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag live">Live</span>
+          <span class="tag">Web App</span>
+          <span class="tag">Tax Data</span>
+        </div>
+        <div class="product-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- F1-Versus -->
+    <a class="product-card" href="https://f1-versus.com" target="_blank" rel="noopener">
+      <div class="product-card-head">
+        <span class="product-number">02</span>
+        <div class="product-icon" aria-hidden="true" style="background:#fdf3ef;">🏁</div>
+      </div>
+      <h3 class="product-name">F1-Versus</h3>
+      <p class="product-tagline">Settle F1 arguments with data.</p>
+      <p class="product-desc">Head-to-head comparison for every Formula 1 driver in history. Qualifying gaps, race finishes, teammate records — pulled from F1DB and re-synced automatically after each race weekend.</p>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag live">Live</span>
+          <span class="tag">Web App</span>
+        </div>
+        <div class="product-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </a>
+
+    <!-- LoopSignal -->
+    <a class="product-card" href="https://loopsignal.dev" target="_blank" rel="noopener">
+      <div class="product-card-head">
+        <span class="product-number">03</span>
         <div class="product-icon" aria-hidden="true" style="background:#eef4ff;">📣</div>
       </div>
       <h3 class="product-name">LoopSignal</h3>
       <p class="product-tagline">Close the loop between users and code.</p>
-      <p class="product-desc">A feedback management tool for indie developers. Collect feature requests, moderate feedback, and sync validated ideas directly to GitHub issues so product decisions stay connected to real users.</p>
+      <p class="product-desc">A public feedback board for indie teams. Collect feature requests, let users vote, and sync validated ideas straight to GitHub issues.</p>
       <div class="product-footer">
         <div class="product-tags">
-          <span class="tag building">Building</span>
-          <span class="tag">Web App</span>
+          <span class="tag live">Live</span>
           <span class="tag">SaaS</span>
         </div>
         <div class="product-arrow">
@@ -1270,14 +1496,14 @@
     </a>
 
     <!-- ConvertCenter -->
-    <a class="product-card" href="https://convertcenter.org" target="_blank" rel="noopener" class="product-link">
+    <a class="product-card" href="https://convertcenter.org" target="_blank" rel="noopener">
       <div class="product-card-head">
-        <span class="product-number">02</span>
-        <div class="product-icon" aria-hidden="true" style="background:#fdf3ef;">↔️</div>
+        <span class="product-number">04</span>
+        <div class="product-icon" aria-hidden="true" style="background:#f5f5ef;">↔️</div>
       </div>
       <h3 class="product-name">ConvertCenter</h3>
       <p class="product-tagline">Clean conversion tools built for speed.</p>
-      <p class="product-desc">A long‑tail SEO utility hub offering dozens of small conversion tools for developers, designers, and everyday users — from unit conversions to encoding, color formats, and data utilities.</p>
+      <p class="product-desc">A utility hub with dozens of small conversion tools for developers, designers, and everyday users — units, encoding, color formats, and data utilities. No ads in the way, no sign-up.</p>
       <div class="product-footer">
         <div class="product-tags">
           <span class="tag live">Live</span>
@@ -1290,41 +1516,20 @@
       </div>
     </a>
 
-    <!-- Dharma Astroloji -->
-    <a class="product-card" href="https://dharmaastroloji.com" target="_blank" rel="noopener" class="product-link">
-      <div class="product-card-head">
-        <span class="product-number">03</span>
-        <div class="product-icon" aria-hidden="true" style="background:#f5f0fa;">☽</div>
-      </div>
-      <h3 class="product-name">Dharma Astroloji</h3>
-      <p class="product-tagline">Modern astrology content for Turkish audiences.</p>
-      <p class="product-desc">A digital astrology brand combining blog articles, podcast content, and upcoming mobile tools for natal charts, daily insights, and AI‑assisted readings.</p>
-      <div class="product-footer">
-        <div class="product-tags">
-          <span class="tag live">Live</span>
-          <span class="tag">Content Platform</span>
-          <span class="tag">Web</span>
-        </div>
-        <div class="product-arrow">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </div>
-    </a>
-
     <!-- OneRule -->
-    <a class="product-card" href="https://seralifatih.github.io/OneRuleWeb/" target="_blank" rel="noopener" class="product-link">
+    <a class="product-card" href="https://seralifatih.github.io/OneRuleWeb/" target="_blank" rel="noopener">
       <div class="product-card-head">
-        <span class="product-number">04</span>
-        <div class="product-icon" aria-hidden="true" style="background:#f5f5ef;">🔐</div>
+        <span class="product-number">05</span>
+        <div class="product-icon" aria-hidden="true" style="background:#f5f0fa;">🔐</div>
       </div>
       <h3 class="product-name">OneRule</h3>
       <p class="product-tagline">A minimalist password manager.</p>
-      <p class="product-desc">An offline‑first Android password manager focused on simplicity and security. Local‑only storage, clean UX, and open‑source distribution through alternative app ecosystems.</p>
+      <p class="product-desc">An offline-first Android password manager focused on simplicity and security. Local-only storage, clean UX, open source, distributed through alternative app ecosystems.</p>
       <div class="product-footer">
         <div class="product-tags">
           <span class="tag live">Live</span>
-          <span class="tag">Mobile App</span>
           <span class="tag">Android</span>
+          <span class="tag">Open Source</span>
         </div>
         <div class="product-arrow">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1332,31 +1537,53 @@
       </div>
     </a>
 
-    <!-- SoundMeter -->
+    <!-- Judge Me -->
     <article class="product-card">
-      <div class="product-left">
-        <div class="product-card-head">
-          <span class="product-number">05</span>
-          <div class="product-icon" aria-hidden="true" style="background:#edf6f1; font-size:0.9rem; font-family:var(--mono);">dB</div>
-        </div>
-        <h3 class="product-name">SoundMeter</h3>
-        <p class="product-tagline">A clean decibel measurement app for everyday noise checks.</p>
-        <p class="product-desc">A mobile sound level meter that uses your phone's microphone to measure environmental noise in real time. It focuses on live dB readings, min/avg/max stats, saved measurement history, calibration, and CSV export without the clutter common in utility apps.</p>
+      <div class="product-card-head">
+        <span class="product-number">06</span>
+        <div class="product-icon" aria-hidden="true" style="background:#faf5e6;">⚖</div>
       </div>
+      <h3 class="product-name">Judge Me</h3>
+      <p class="product-tagline">Was I the asshole? Let the crowd decide.</p>
+      <p class="product-desc">A voting game built around everyday moral dilemmas. Read the situation, cast your verdict, then see how far you land from everyone else. Rebuilt in Flutter.</p>
       <div class="product-footer">
         <div class="product-tags">
           <span class="tag building">Building</span>
           <span class="tag">Mobile App</span>
-          <span class="tag">Android</span>
-        </div>
-        <div class="product-doc-links">
-          <a class="product-doc-link" href="/sound-meter-privacy.html" target="_blank" rel="noopener">Privacy</a>
-          <a class="product-doc-link" href="/sound-meter-terms.html" target="_blank" rel="noopener">Terms</a>
+          <span class="tag">Flutter</span>
         </div>
       </div>
     </article>
 
   </div>
+</section>
+
+<!-- CLIENT WORK -->
+<section class="client" id="client">
+  <div class="section-label">Client work</div>
+  <a class="client-card reveal" href="https://dharmaastroloji.com" target="_blank" rel="noopener">
+    <div class="client-left">
+      <div class="product-card-head">
+        <span class="product-number">Engineering &amp; analytics</span>
+        <div class="product-icon" aria-hidden="true" style="background:#f5f0fa;">☽</div>
+      </div>
+      <h3 class="product-name">Dharma Astroloji</h3>
+      <p class="product-tagline">Modern astrology content for Turkish audiences.</p>
+    </div>
+    <div>
+      <p class="product-desc">A Turkish astrology brand with a custom WordPress theme built from scratch. I handle the technical side — theme development, performance, and analytics — while the editorial direction belongs to the brand.</p>
+      <div class="product-footer">
+        <div class="product-tags">
+          <span class="tag live">Live</span>
+          <span class="tag">WordPress</span>
+          <span class="tag">Theme Dev</span>
+        </div>
+        <div class="product-arrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </a>
 </section>
 
 <!-- INSIGHTS -->
@@ -1374,23 +1601,21 @@
   <div class="insights-grid">
     <article class="insight-card featured reveal">
       <div class="insight-kicker">Featured insight</div>
-      <h3 class="insight-title">3 APIs for Turkish E-Commerce Intelligence on Apify</h3>
+      <h3 class="insight-title">Turning Congressional Disclosures Into a Usable API</h3>
       <p class="insight-desc">
-        Turkish marketplace data is valuable, but hard to operationalize. Product pages, seller profiles, and review systems all expose different structures, which usually leaves teams stitching together brittle scrapers and cleanup scripts. I packaged that work into three production-ready Apify Actors that behave like APIs: send JSON input, get normalized output, and plug the results into BI pipelines, alerts, or AI workflows without a custom parser per marketplace.
+        US House and Senate members file their trades publicly, but the filings arrive as scanned PDFs and inconsistent web forms — which is why almost nobody uses the raw source. The hard part was never access; it was normalization. Ticker formats vary, amounts come as ranges, filers repeat entries, and the two chambers publish in completely different structures. I built both pipelines to output one consistent schema, so the data lands ready for screeners and alerts rather than another cleanup script.
       </p>
       <div class="insight-list">
-        <span>N11 Product Scraper for structured catalog, pricing, seller, and stock data</span>
-        <span>Seller Intelligence across Trendyol, Hepsiburada, and N11</span>
-        <span>Review Aggregator with normalized schema and Turkish sentiment tagging</span>
-        <span>Built for pricing analysis, seller evaluation, competitor tracking, and research</span>
+        <span>Both chambers parsed into a single shared output schema</span>
+        <span>Deduplication across amended and repeated filings</span>
+        <span>Amount ranges preserved rather than flattened to a guess</span>
+        <span>Billed per result — no subscription, no minimum</span>
       </div>
       <div class="insight-links">
-        <a class="insight-link" href="https://apify.com/seralifatih/n11-product-scraper" target="_blank" rel="noopener">N11 Product Scraper</a>
-        <a class="insight-link" href="https://apify.com/seralifatih/turkish-marketplace-seller-intelligence" target="_blank" rel="noopener">Seller Intelligence</a>
-        <a class="insight-link" href="https://apify.com/seralifatih/turkish-e-commerce-review-aggregator" target="_blank" rel="noopener">Review Aggregator</a>
+        <a class="insight-link" href="https://apify.com/seralifatih" target="_blank" rel="noopener">View the Actors</a>
       </div>
       <div class="insight-meta">
-        <span class="insight-meta-text">Data products / Apify Actors / Turkey</span>
+        <span class="insight-meta-text">Data products / Public records / Apify</span>
       </div>
     </article>
 
@@ -1426,7 +1651,7 @@
       <div class="section-label">How I build</div>
       <h2 class="stack-title">Lean stack.<br>Fast cycles.</h2>
       <p class="stack-body">
-        I build with a tight, proven stack across all projects. The same infrastructure pattern — Next.js on Cloudflare, Supabase for data, Paddle for payments — means less context-switching and faster shipping.
+        I build with a tight, proven stack across all projects. The same infrastructure pattern — Next.js on Cloudflare, D1 or Supabase for data, Apify for pipelines — means less context-switching and faster shipping.
       </p>
       <div class="stack-chips">
         <span class="chip">
@@ -1442,24 +1667,28 @@
           Tailwind
         </span>
         <span class="chip">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.5"/></svg>
-          Supabase
-        </span>
-        <span class="chip">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.5"/></svg>
           Cloudflare
         </span>
         <span class="chip">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="1.5"/></svg>
-          Workers
+          Workers &amp; D1
+        </span>
+        <span class="chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.5"/></svg>
+          Supabase
         </span>
         <span class="chip">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18v12H3z" stroke="currentColor" stroke-width="1.5"/></svg>
           Flutter
         </span>
         <span class="chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M4 8l8-5 8 5v8l-8 5-8-5z" stroke="currentColor" stroke-width="1.5"/></svg>
+          Apify SDK
+        </span>
+        <span class="chip">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1"/></svg>
-          AI APIs
+          Python
         </span>
         <span class="chip">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2v20M2 12h20" stroke="currentColor" stroke-width="1.5"/></svg>
@@ -1493,7 +1722,7 @@
         <span class="step-num">04</span>
         <div>
           <div class="step-title">Distribute → Iterate</div>
-          <p class="step-desc">AppSumo LTDs, Reddit communities, SEO. No free tiers, no VC timelines.</p>
+          <p class="step-desc">SEO, marketplace listings, and developer communities. No free tiers, no VC timelines.</p>
         </div>
       </div>
     </div>
@@ -1520,16 +1749,16 @@
         I build software the way I think it should be built — <strong>fast, focused, and without a team of 20.</strong> Nokta Studio is my lab: a place where ideas become products, products get shipped, and shipped things get iterated on until they earn their keep.
       </p>
       <p class="founder-bio">
-        I work across web, mobile, and games — whatever the idea demands. My stack is tight, my timelines are short, and I don't do free tiers. <strong>Everything here is built by one person with strong opinions and a bias toward shipping.</strong>
+        I work across data pipelines, web, and mobile — whatever the idea demands. My stack is tight, my timelines are short, and I don't do free tiers. <strong>Everything here is built by one person with strong opinions and a bias toward shipping.</strong>
       </p>
       <div class="founder-facts">
         <div class="founder-fact">
           <span class="fact-dot"></span>
-          <span class="fact-text"><strong>Vibe coder</strong> — AI-assisted development from idea to production</span>
+          <span class="fact-text"><strong>AI-assisted development</strong> — from idea to production, prompts over boilerplate</span>
         </div>
         <div class="founder-fact">
           <span class="fact-dot"></span>
-          <span class="fact-text"><strong>Multiple bets</strong> — SaaS, mobile apps, games, content brands running in parallel</span>
+          <span class="fact-text"><strong>Multiple bets</strong> — data APIs, SaaS, and mobile apps running in parallel</span>
         </div>
         <div class="founder-fact">
           <span class="fact-dot"></span>
@@ -1551,17 +1780,22 @@
     Got a product idea?<br><em>Let's build it.</em>
   </h2>
   <div class="contact-links reveal">
-    <a href="mailto:h.f.ilhan@gmail.com" class="contact-link primary" target="_blank">
+    <a href="mailto:h.f.ilhan@gmail.com" class="contact-link primary">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.5"/></svg>
       Email
     </a>
 
-    <a href="https://github.com/seralifatih" class="contact-link" target="_blank">
+    <a href="https://github.com/seralifatih" class="contact-link" target="_blank" rel="noopener">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.48 0-.24-.01-1.04-.02-1.88-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.15-4.56-5.1 0-1.13.39-2.06 1.03-2.78-.1-.26-.45-1.31.1-2.72 0 0 .84-.27 2.75 1.06A9.2 9.2 0 0112 6.84c.82 0 1.65.11 2.42.34 1.9-1.33 2.74-1.06 2.74-1.06.55 1.41.2 2.46.1 2.72.64.72 1.03 1.65 1.03 2.78 0 3.96-2.34 4.83-4.57 5.08.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.18.59.69.48A10.03 10.03 0 0022 12.24C22 6.58 17.52 2 12 2z" fill="currentColor"/></svg>
       GitHub
     </a>
 
-    <a href="https://tr.linkedin.com/in/fatih-ilhan-11628177" class="contact-link" target="_blank">
+    <a href="https://apify.com/seralifatih" class="contact-link" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l9 6-9 6-9-6 9-6zM3 15l9 6 9-6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      Apify
+    </a>
+
+    <a href="https://tr.linkedin.com/in/fatih-ilhan-11628177" class="contact-link" target="_blank" rel="noopener">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.94 6.5a1.94 1.94 0 11-3.88 0 1.94 1.94 0 013.88 0zM3.5 8.75h3v11h-3v-11zM10 8.75h2.88v1.5h.04c.4-.76 1.38-1.56 2.85-1.56 3.05 0 3.61 2.03 3.61 4.67v6.39h-3v-5.66c0-1.35-.02-3.09-1.88-3.09-1.88 0-2.17 1.47-2.17 2.99v5.76h-3v-11z" fill="currentColor"/></svg>
       LinkedIn
     </a>
@@ -1574,11 +1808,12 @@
     <span class="nav-dot"></span>
     <span class="footer-wordmark">Nokta Studio</span>
   </a>
-  <span class="footer-copy">© 2025 Nokta Studio. Built &amp; shipped independently.</span>
+  <span class="footer-copy">© 2026 Nokta Studio. Built &amp; shipped independently.</span>
   <a class="footer-copy" href="https://noktastudio.dev" style="text-decoration:none;">noktastudio.dev</a>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>
   // Mobile nav toggle
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -1629,5 +1864,6 @@
     cardObserver.observe(card);
   });
 </script>
-<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "743b9b5c601a40328ef9e066d338d496"}'></script><!-- Cloudflare Pages Analytics --></body>
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "743b9b5c601a40328ef9e066d338d496"}'></script>
+</body>
 </html>
