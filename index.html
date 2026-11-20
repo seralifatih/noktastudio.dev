@@ -3,23 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nokta Studio — Independent Software Studio</title>
-<meta name="description" content="Nokta Studio is an independent software studio in Ankara, Turkey, building focused SaaS tools, data pipelines, and mobile apps.">
+<title>Nokta Studio — indie apps by Fatih</title>
+<meta name="description" content="Nokta Studio is Fatih's indie app studio: OurGarage, Moonmark and Judge Me on iOS and Android, built solo and in public. Follow along on X @fatihbuilds.">
 <meta name="author" content="Fatih Ilhan">
 <link rel="canonical" href="https://noktastudio.dev/">
 <meta name="theme-color" content="#1a1714">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://noktastudio.dev/">
-<meta property="og:title" content="Nokta Studio — Independent Software Studio">
-<meta property="og:description" content="Solo studio in Ankara building SaaS tools, data pipelines, and mobile apps. Small bets, sharp products, fast cycles.">
-<meta property="og:image" content="https://noktastudio.dev/portrait.jpg">
+<meta property="og:title" content="Nokta Studio — indie apps by Fatih">
+<meta property="og:description" content="Indie apps built solo and in public: OurGarage, Moonmark, Judge Me. Follow along on X @fatihbuilds.">
+<meta property="og:image" content="https://noktastudio.dev/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nokta Studio — indie apps by Fatih, with the OurGarage, Moonmark and Judge Me icons">
 <meta property="og:site_name" content="Nokta Studio">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nokta Studio — Independent Software Studio">
-<meta name="twitter:description" content="Solo studio in Ankara building SaaS tools, data pipelines, and mobile apps.">
-<meta name="twitter:image" content="https://noktastudio.dev/portrait.jpg">
+<meta name="twitter:site" content="@fatihbuilds">
+<meta name="twitter:creator" content="@fatihbuilds">
+<meta name="twitter:title" content="Nokta Studio — indie apps by Fatih">
+<meta name="twitter:description" content="Indie apps built solo and in public: OurGarage, Moonmark, Judge Me.">
+<meta name="twitter:image" content="https://noktastudio.dev/og-image.png">
 
 <script type="application/ld+json">
 {
@@ -27,7 +32,7 @@
   "@type": "Organization",
   "name": "Nokta Studio",
   "url": "https://noktastudio.dev/",
-  "description": "Independent software studio building SaaS tools, data pipelines, and mobile apps.",
+  "description": "Indie app studio by Fatih Ilhan: iOS and Android apps built solo and in public.",
   "founder": {
     "@type": "Person",
     "name": "Fatih Ilhan",
@@ -41,7 +46,8 @@
   "sameAs": [
     "https://github.com/seralifatih",
     "https://tr.linkedin.com/in/fatih-ilhan-11628177",
-    "https://apify.com/seralifatih"
+    "https://apify.com/seralifatih",
+    "https://x.com/fatihbuilds"
   ]
 }
 </script>
@@ -166,21 +172,6 @@
     overflow: hidden;
   }
 
-  .hero-bg-number {
-    position: absolute;
-    top: 50%;
-    right: -2rem;
-    transform: translateY(-50%);
-    font-family: var(--serif);
-    font-size: clamp(18rem, 30vw, 38rem);
-    color: transparent;
-    -webkit-text-stroke: 1px var(--border);
-    line-height: 1;
-    user-select: none;
-    pointer-events: none;
-    opacity: 0.6;
-  }
-
   .hero-label {
     font-family: var(--mono);
     font-size: 0.72rem;
@@ -204,10 +195,11 @@
 
   .hero-title {
     font-family: var(--serif);
-    font-size: clamp(3.2rem, 7vw, 7rem);
-    line-height: 1.05;
+    font-size: clamp(2.4rem, 5.6vw, 5.4rem);
+    line-height: 1.08;
     letter-spacing: -0.02em;
-    max-width: 780px;
+    max-width: 980px;
+    text-wrap: balance;
     animation: fadeUp 0.8s 0.1s ease both;
   }
 
@@ -220,7 +212,7 @@
     margin-top: 2rem;
     font-size: 1.05rem;
     color: var(--mid);
-    max-width: 460px;
+    max-width: 560px;
     line-height: 1.65;
     animation: fadeUp 0.8s 0.2s ease both;
   }
@@ -251,6 +243,8 @@
   }
 
   .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-primary { white-space: nowrap; }
+  .btn-primary svg { flex-shrink: 0; }
 
   .hero-scroll {
     font-family: var(--mono);
@@ -289,90 +283,6 @@
     max-width: 4rem;
     height: 1px;
     background: var(--accent);
-  }
-
-  /* ── ABOUT ── */
-  .about {
-    background: var(--ink);
-    color: var(--paper);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .about .section-label { color: var(--accent-muted); }
-  .about .section-label::after { background: var(--accent-muted); }
-
-  .about-title {
-    font-family: var(--serif);
-    font-size: clamp(2.2rem, 4vw, 3.8rem);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
-
-  .about-title em { font-style: italic; color: var(--accent-muted); }
-
-  .about-right { display: flex; flex-direction: column; gap: 1.4rem; }
-
-  .about-body {
-    font-size: 1rem;
-    color: #b5ad9f;
-    line-height: 1.75;
-  }
-
-  .about-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: #2e2a25;
-    border: 1px solid #2e2a25;
-    margin-top: 1rem;
-  }
-
-  .stat {
-    background: var(--ink);
-    padding: 1.6rem 1.2rem;
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: var(--serif);
-    font-size: 2.4rem;
-    line-height: 1;
-    color: var(--paper);
-  }
-
-  .stat-label {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #b5ad9f;
-    margin-top: 0.4rem;
-  }
-
-  .about-principles {
-    margin-top: 1.5rem;
-    border-top: 1px solid #2e2a25;
-    padding-top: 1.4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .about-principles-label {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #b5ad9f;
-  }
-
-  .about-principles-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
   }
 
   /* ── APIS / DATA ── */
@@ -463,13 +373,13 @@
   }
 
   /* ── PRODUCTS ── */
-  .products { background: var(--paper); }
+  .products { background: var(--paper); border-top: 1px solid var(--border); }
 
   .products-header {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 
   .products-title {
@@ -477,19 +387,10 @@
     font-size: clamp(2.2rem, 4vw, 3.5rem);
     line-height: 1.1;
     letter-spacing: -0.02em;
-    max-width: 500px;
+    max-width: 560px;
   }
 
   .products-title em { font-style: italic; color: var(--accent); }
-
-  .products-count {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--mid);
-    padding-bottom: 0.3rem;
-  }
 
   .products-grid {
     display: grid;
@@ -500,34 +401,121 @@
   }
 
   .product-card {
+    grid-column: span 4;
     background: var(--paper);
-    padding: 2.8rem 2.4rem;
+    padding: 2.4rem 2.2rem;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
-    text-decoration: none;
+    gap: 1.1rem;
     color: inherit;
     transition: background 0.2s;
-    position: relative;
-    overflow: hidden;
   }
 
   .product-card:hover { background: var(--paper-dark); }
-  .product-card:hover .product-arrow { transform: translate(3px, -3px); }
+
+  .product-subhead {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin: 4rem 0 1.2rem;
+  }
+
+  .mini-list {
+    border: 1px solid var(--border);
+    background: var(--border);
+    display: grid;
+    gap: 1px;
+  }
+
+  .mini-row {
+    background: var(--paper);
+    padding: 1.2rem 1.6rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.6rem 1.5rem;
+    align-items: center;
+  }
+
+  .mini-name {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .mini-desc {
+    font-size: 0.88rem;
+    color: var(--mid);
+    line-height: 1.5;
+  }
+
+  .mini-meta {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .mini-list.archived .mini-row { background: var(--paper-dark); }
+  .mini-list.archived .mini-name { color: var(--mid); font-size: 1.1rem; }
+
+  .product-icon-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    display: block;
+    flex-shrink: 0;
+  }
+
+  /* ── NOW ── */
+  .now {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4rem 3rem;
+  }
+
+  .now-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .now-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-muted);
+    margin-bottom: 0.8rem;
+  }
+
+  .now-text {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.8vw, 2.3rem);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    max-width: 760px;
+  }
+
+  .now-date {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #b5ad9f;
+  }
 
   .product-card-head {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
-
-  /* Grid layout: 7+5, 5+7, 6+6 */
-  .product-card:nth-child(1) { grid-column: span 7; }
-  .product-card:nth-child(2) { grid-column: span 5; }
-  .product-card:nth-child(3) { grid-column: span 5; }
-  .product-card:nth-child(4) { grid-column: span 7; }
-  .product-card:nth-child(5) { grid-column: span 6; }
-  .product-card:nth-child(6) { grid-column: span 6; }
 
   .product-number {
     font-family: var(--mono);
@@ -553,8 +541,6 @@
     line-height: 1.1;
     letter-spacing: -0.01em;
   }
-
-  .product-card:nth-child(1) .product-name { font-size: 2.1rem; }
 
   .product-tagline {
     font-size: 0.88rem;
@@ -631,10 +617,22 @@
     background: #f0f7f3;
   }
 
-  .tag.building {
-    border-color: #c4451a;
-    color: #c4451a;
-    background: #fdf3ef;
+  .tag.new {
+    border-color: #1f5f8a;
+    color: #1f5f8a;
+    background: #eef5fa;
+  }
+
+  .tag.archived {
+    border-color: var(--border);
+    color: var(--mid);
+    background: transparent;
+  }
+
+  .tag.platform {
+    border-color: var(--ink);
+    color: var(--ink);
+    background: transparent;
   }
 
   .tag.paid {
@@ -1208,10 +1206,14 @@
     .nav-links li:last-child { border-bottom: none; }
     section { padding: 5rem 1.5rem; }
     .hero { padding: 0 1.5rem 4rem; }
-    .about { grid-template-columns: 1fr; gap: 3rem; }
     .apis-header,
     .products-header,
     .insights-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .product-card { grid-column: span 12; }
+    .hero-cta-row { flex-wrap: wrap; gap: 1.2rem 1.5rem; }
+    .mini-row { grid-template-columns: 1fr; }
+    .mini-meta { justify-content: flex-start; }
+    .now { padding: 3.5rem 1.5rem; }
     .apis-intro,
     .insights-intro { max-width: none; }
     .api-card.wide,
@@ -1219,18 +1221,11 @@
     .insight-card.featured,
     .insight-card.compact { grid-column: span 12; }
     .insight-list { grid-template-columns: 1fr; }
-    .product-card:nth-child(1),
-    .product-card:nth-child(2),
-    .product-card:nth-child(3),
-    .product-card:nth-child(4),
-    .product-card:nth-child(5),
-    .product-card:nth-child(6) { grid-column: span 12; }
     .client-card { grid-template-columns: 1fr; gap: 1.5rem; }
     .stack-inner { grid-template-columns: 1fr; gap: 3rem; }
     .founder-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .founder-photo { aspect-ratio: 1/1; max-width: 200px; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
-    .hero-bg-number { display: none; }
   }
 </style>
 </head>
@@ -1243,11 +1238,12 @@
     <span class="nav-wordmark">Nokta Studio</span>
   </a>
   <ul class="nav-links" id="nav-links">
-    <li><a href="#apis">APIs</a></li>
-    <li><a href="#products">Products</a></li>
+    <li><a href="#products">Apps</a></li>
+    <li><a href="#now">Now</a></li>
+    <li><a href="#apis">Data &amp; APIs</a></li>
     <li><a href="#insights">Blog</a></li>
-    <li><a href="#founder">About</a></li>
     <li><a href="#stack">Stack</a></li>
+    <li><a href="#founder">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
@@ -1257,67 +1253,117 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-number" aria-hidden="true">06</div>
-  <div class="hero-label">Independent Software Studio</div>
+  <div class="hero-label">Indie apps · Built in public</div>
   <h1 class="hero-title">
-    Solo studio.<br>
-    <em>Sharp</em> products.
+    Nokta Studio — indie apps by <em>Fatih</em>, built solo and in public.
   </h1>
   <p class="hero-sub">
-    Nokta Studio builds focused web tools, data pipelines, and mobile apps — software that solves one problem exceptionally well, then ships.
+    Shipped iOS &amp; Android apps. Now learning distribution, documenting it on X.
   </p>
   <div class="hero-cta-row">
-    <a href="#apis" class="btn-primary">
-      View Work
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <a href="https://x.com/fatihbuilds" class="btn-primary" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Follow @fatihbuilds on X
     </a>
-    <a href="#contact" class="hero-scroll">
-      Get in touch
+    <a href="#products" class="hero-scroll">
+      See the apps
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-left reveal">
-    <div class="section-label">About the studio</div>
-    <h2 class="about-title">One maker.<br><em>Many</em> bets.</h2>
-    <div class="about-stats">
-      <div class="stat">
-        <div class="stat-num">06</div>
-        <div class="stat-label">Products</div>
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-label">Apps</div>
+  <div class="products-header reveal">
+    <h2 class="products-title">
+      What I'm <em>shipping</em><br>right now.
+    </h2>
+  </div>
+
+  <div class="products-grid reveal">
+
+    <article class="product-card">
+      <div class="product-card-head">
+        <img class="product-icon-img" src="/img/ourgarage.jpg" alt="OurGarage app icon" width="64" height="64" loading="lazy" decoding="async">
       </div>
-      <div class="stat">
-        <div class="stat-num">18</div>
-        <div class="stat-label">Data APIs</div>
+      <h3 class="product-name">OurGarage</h3>
+      <p class="product-desc">Car maintenance reminders, shared with family.</p>
+      <div class="product-tags"><span class="tag live">Live</span><span class="tag platform">iOS</span></div>
+      <div class="product-footer">
+        <div class="product-doc-links"><a class="product-doc-link" href="https://apps.apple.com/us/app/ourgarage-car-maintenance-log/id6801807059" target="_blank" rel="noopener">App Store</a></div>
       </div>
-      <div class="stat">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Iterations</div>
+    </article>
+    <article class="product-card">
+      <div class="product-card-head">
+        <img class="product-icon-img" src="/img/moonmark.jpg" alt="Moonmark app icon" width="64" height="64" loading="lazy" decoding="async">
       </div>
+      <h3 class="product-name">Moonmark</h3>
+      <p class="product-desc">An AI companion app: pick a love interest, play his story, and text him between chapters.</p>
+      <div class="product-tags"><span class="tag new">New</span><span class="tag platform">iOS</span></div>
+      <div class="product-footer">
+        <div class="product-doc-links"><a class="product-doc-link" href="https://apps.apple.com/us/app/moonmark-ai-boyfriend-story/id6834405390" target="_blank" rel="noopener">App Store</a></div>
+      </div>
+    </article>
+    <article class="product-card">
+      <div class="product-card-head">
+        <img class="product-icon-img" src="/img/judgeme.jpg" alt="Judge Me app icon" width="64" height="64" loading="lazy" decoding="async">
+      </div>
+      <h3 class="product-name">Judge Me</h3>
+      <p class="product-desc">An AITA-style voting game: read the dilemma, cast your verdict, see how the crowd voted.</p>
+      <div class="product-tags"><span class="tag live">Live</span><span class="tag platform">iOS + Android</span></div>
+      <div class="product-footer">
+        <div class="product-doc-links"><a class="product-doc-link" href="https://apps.apple.com/us/app/judge-me-daily-dilemmas/id6824040564" target="_blank" rel="noopener">App Store</a><a class="product-doc-link" href="https://play.google.com/store/apps/details?id=com.noktastudio.judgeme&amp;hl=en" target="_blank" rel="noopener">Google Play</a></div>
+      </div>
+    </article>
+
+  </div>
+
+  <h3 class="product-subhead reveal">Also live</h3>
+  <div class="mini-list reveal">
+    <div class="mini-row">
+      <div><div class="mini-name">DocDrifter</div><p class="mini-desc">Documentation drift detection, as a GitHub Action.</p></div>
+      <div class="mini-meta"><span class="tag live">Live</span><span class="tag platform">GitHub Action</span><a class="product-doc-link" href="https://docdrifter.com" target="_blank" rel="noopener">Website</a></div>
+    </div>
+    <div class="mini-row">
+      <div><div class="mini-name">Comparely</div><p class="mini-desc">Tax-aware comparison of where to live and work.</p></div>
+      <div class="mini-meta"><span class="tag live">Live</span><span class="tag platform">Web</span><a class="product-doc-link" href="https://comparely.world" target="_blank" rel="noopener">Website</a></div>
+    </div>
+    <div class="mini-row">
+      <div><div class="mini-name">F1-Versus</div><p class="mini-desc">Head-to-head comparisons for every Formula 1 driver.</p></div>
+      <div class="mini-meta"><span class="tag live">Live</span><span class="tag platform">Web</span><a class="product-doc-link" href="https://f1-versus.com" target="_blank" rel="noopener">Website</a></div>
+    </div>
+    <div class="mini-row">
+      <div><div class="mini-name">Pixel Raid</div><p class="mini-desc">A side-scrolling shooter.</p></div>
+      <div class="mini-meta"><span class="tag live">Live</span><span class="tag platform">Android</span><a class="product-doc-link" href="https://play.google.com/store/apps/details?id=dev.noktastudio.pixelraid&amp;hl=en" target="_blank" rel="noopener">Google Play</a></div>
+    </div>
+    <div class="mini-row">
+      <div><div class="mini-name">OneRule</div><p class="mini-desc">An offline-first, open-source password manager.</p></div>
+      <div class="mini-meta"><span class="tag live">Live</span><span class="tag platform">Android</span><a class="product-doc-link" href="https://play.google.com/store/apps/details?id=com.fidevelopment.onerule&amp;hl=en" target="_blank" rel="noopener">Google Play</a><a class="product-doc-link" href="https://github.com/seralifatih/OneRule" target="_blank" rel="noopener">Source</a></div>
     </div>
   </div>
-  <div class="about-right reveal">
-    <p class="about-body">
-      Nokta Studio is an independent software studio based in Ankara, Turkey. I build data pipelines, SaaS tools, and mobile apps — leaning on modern AI-assisted workflows to ship fast and stay lean.
-    </p>
-    <p class="about-body">
-      Every product starts with a simple belief: software should do one thing well. I don't build platforms. I build tools that respect the user's time, fit into their workflow, and get out of the way.
-    </p>
-    <p class="about-body">
-      From congressional trading data to tax-aware relocation math to F1 statistics — I build across categories, but the philosophy stays the same.
-    </p>
-    <div class="about-principles">
-      <div class="about-principles-label">Principles</div>
-      <div class="about-principles-tags">
-        <span class="tag">Ship fast</span>
-        <span class="tag">Small tools</span>
-        <span class="tag">Global users</span>
-        <span class="tag">Indie first</span>
-        <span class="tag">AI assisted</span>
-      </div>
+
+  <h3 class="product-subhead reveal">Archived</h3>
+  <div class="mini-list archived reveal">
+    <div class="mini-row">
+      <div><div class="mini-name">ConvertCenter</div><p class="mini-desc">Small conversion tools for developers and designers.</p></div>
+      <div class="mini-meta"><span class="tag archived">Archived</span><span class="tag platform">Web</span><a class="product-doc-link" href="https://convertcenter.org" target="_blank" rel="noopener">Website</a></div>
     </div>
+    <div class="mini-row">
+      <div><div class="mini-name">SoundMeter</div><p class="mini-desc">A sound level meter.</p></div>
+      <div class="mini-meta"><span class="tag archived">Archived</span><span class="tag platform">Android</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOW -->
+<section class="now" id="now">
+  <div class="now-inner reveal">
+    <div>
+      <div class="now-label">Now</div>
+      <p class="now-text">Currently: growing Moonmark and OurGarage — SEO, short-form video, Reddit.</p>
+    </div>
+    <time class="now-date" datetime="2026-11">Updated Nov 2026</time>
   </div>
 </section>
 
@@ -1418,142 +1464,6 @@
         </div>
       </div>
     </a>
-
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section class="products" id="products">
-  <div class="section-label">Products</div>
-  <div class="products-header reveal">
-    <h2 class="products-title">
-      Live projects with a<br><em>real</em> home on the web.
-    </h2>
-    <span class="products-count">06 products</span>
-  </div>
-
-  <div class="products-grid reveal">
-
-    <!-- Comparely -->
-    <a class="product-card" href="https://comparely.org" target="_blank" rel="noopener">
-      <div class="product-card-head">
-        <span class="product-number">01</span>
-        <div class="product-icon" aria-hidden="true" style="background:#f0f7f3;">⚖️</div>
-      </div>
-      <h3 class="product-name">Comparely</h3>
-      <p class="product-tagline">What you actually keep, country by country.</p>
-      <p class="product-desc">A tax-aware comparison engine for people deciding where to live and work. Most cost-of-living tools compare rent and groceries; Comparely starts with net income after tax across 35 jurisdictions, then layers cost on top. Built for digital nomads, expats, and remote workers who need the real number, not a gross salary.</p>
-      <div class="product-footer">
-        <div class="product-tags">
-          <span class="tag live">Live</span>
-          <span class="tag">Web App</span>
-          <span class="tag">Tax Data</span>
-        </div>
-        <div class="product-arrow">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </div>
-    </a>
-
-    <!-- F1-Versus -->
-    <a class="product-card" href="https://f1-versus.com" target="_blank" rel="noopener">
-      <div class="product-card-head">
-        <span class="product-number">02</span>
-        <div class="product-icon" aria-hidden="true" style="background:#fdf3ef;">🏁</div>
-      </div>
-      <h3 class="product-name">F1-Versus</h3>
-      <p class="product-tagline">Settle F1 arguments with data.</p>
-      <p class="product-desc">Head-to-head comparison for every Formula 1 driver in history. Qualifying gaps, race finishes, teammate records — pulled from F1DB and re-synced automatically after each race weekend.</p>
-      <div class="product-footer">
-        <div class="product-tags">
-          <span class="tag live">Live</span>
-          <span class="tag">Web App</span>
-        </div>
-        <div class="product-arrow">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </div>
-    </a>
-
-    <!-- LoopSignal -->
-    <a class="product-card" href="https://loopsignal.dev" target="_blank" rel="noopener">
-      <div class="product-card-head">
-        <span class="product-number">03</span>
-        <div class="product-icon" aria-hidden="true" style="background:#eef4ff;">📣</div>
-      </div>
-      <h3 class="product-name">LoopSignal</h3>
-      <p class="product-tagline">Close the loop between users and code.</p>
-      <p class="product-desc">A public feedback board for indie teams. Collect feature requests, let users vote, and sync validated ideas straight to GitHub issues.</p>
-      <div class="product-footer">
-        <div class="product-tags">
-          <span class="tag live">Live</span>
-          <span class="tag">SaaS</span>
-        </div>
-        <div class="product-arrow">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </div>
-    </a>
-
-    <!-- ConvertCenter -->
-    <a class="product-card" href="https://convertcenter.org" target="_blank" rel="noopener">
-      <div class="product-card-head">
-        <span class="product-number">04</span>
-        <div class="product-icon" aria-hidden="true" style="background:#f5f5ef;">↔️</div>
-      </div>
-      <h3 class="product-name">ConvertCenter</h3>
-      <p class="product-tagline">Clean conversion tools built for speed.</p>
-      <p class="product-desc">A utility hub with dozens of small conversion tools for developers, designers, and everyday users — units, encoding, color formats, and data utilities. No ads in the way, no sign-up.</p>
-      <div class="product-footer">
-        <div class="product-tags">
-          <span class="tag live">Live</span>
-          <span class="tag">Web App</span>
-          <span class="tag">Utilities</span>
-        </div>
-        <div class="product-arrow">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </div>
-    </a>
-
-    <!-- OneRule -->
-    <a class="product-card" href="https://seralifatih.github.io/OneRuleWeb/" target="_blank" rel="noopener">
-      <div class="product-card-head">
-        <span class="product-number">05</span>
-        <div class="product-icon" aria-hidden="true" style="background:#f5f0fa;">🔐</div>
-      </div>
-      <h3 class="product-name">OneRule</h3>
-      <p class="product-tagline">A minimalist password manager.</p>
-      <p class="product-desc">An offline-first Android password manager focused on simplicity and security. Local-only storage, clean UX, open source, distributed through alternative app ecosystems.</p>
-      <div class="product-footer">
-        <div class="product-tags">
-          <span class="tag live">Live</span>
-          <span class="tag">Android</span>
-          <span class="tag">Open Source</span>
-        </div>
-        <div class="product-arrow">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13L13 3M13 3H6M13 3v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </div>
-    </a>
-
-    <!-- Judge Me -->
-    <article class="product-card">
-      <div class="product-card-head">
-        <span class="product-number">06</span>
-        <div class="product-icon" aria-hidden="true" style="background:#faf5e6;">⚖</div>
-      </div>
-      <h3 class="product-name">Judge Me</h3>
-      <p class="product-tagline">Was I the asshole? Let the crowd decide.</p>
-      <p class="product-desc">A voting game built around everyday moral dilemmas. Read the situation, cast your verdict, then see how far you land from everyone else. Rebuilt in Flutter.</p>
-      <div class="product-footer">
-        <div class="product-tags">
-          <span class="tag building">Building</span>
-          <span class="tag">Mobile App</span>
-          <span class="tag">Flutter</span>
-        </div>
-      </div>
-    </article>
 
   </div>
 </section>
@@ -1784,6 +1694,11 @@
     <a href="mailto:h.f.ilhan@gmail.com" class="contact-link primary">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.5"/></svg>
       Email
+    </a>
+
+    <a href="https://x.com/fatihbuilds" class="contact-link" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+      X
     </a>
 
     <a href="https://github.com/seralifatih" class="contact-link" target="_blank" rel="noopener">
